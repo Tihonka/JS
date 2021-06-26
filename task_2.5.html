@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>task_2.5</title>
+</head>
+
+<body>
+
+    <script>
+        'use strict'
+
+        /**
+         * Функция складывает два переданных числа.
+         * @param {number} arg1  Первое число.
+         * @param {number} arg2  Второе число.
+         * @returns {number}  Вернет число,получившееся при сложении двух чисел.
+         */
+        function sum(arg1, arg2) {
+            return arg1 + arg2;
+        }
+
+        /**
+         * Функция вычитает из первого числа второе.
+         * @param {number} arg1  Первое число.
+         * @param {number} arg2  Второе число.
+         * @returns {number}  Вернет число,получившееся при вычитании из первого числа второго.
+         */
+        function subtract(arg1, arg2) {
+            return arg1 - arg2;
+        }
+
+        /**
+         * Функция делит первое число на второе.
+         * @param {number} arg1  Первое число.
+         * @param {number} arg2  Второе число.
+         * @returns {number}  Вернет число,получившееся при делении двух чисел.
+         */
+        function divide(arg1, arg2) {
+            return arg1 / arg2;
+        }
+
+        /**
+         * Функция умножает первое число на второе.
+         * @param {number} arg1  Первое число.
+         * @param {number} arg2  Второе число.
+         * @returns {number}  Вернет число,получившееся при умножении двух чисел.
+         */
+        function multiply(arg1, arg2) {
+            return arg1 * arg2;
+        }
+
+        /**
+         * Функция выполняет между двумя числами математическую операцию,которую выбрал пользователь.
+         * @param {number} arg1  Первое число.
+         * @param {number} arg2  Второе число.
+         * @param {string} operation  Математиечская операция,которую выбрал пользователь.
+         * @returns {number}  Вернет число,получившееся в результате выбранной математической операции.
+         */
+        function mathOperation(arg1, arg2, operation) {
+            switch (operation) {
+                case "sum":
+                    return sum(arg1, arg2);
+                case "subtract":
+                    return subtract(arg1, arg2);
+                case "divide":
+                    return divide(arg1, arg2);
+                case "multiply":
+                    return multiply(arg1, arg2);
+                default:
+                    alert("Неверно указана операция");
+            }
+        }
+        let arg1 = +prompt("Введите первое число");
+        let arg2 = +prompt("Введите второе число");
+        let operation = prompt("Введите желаемую операцию с числами: sum , subtract, divide или multiply");
+        let result = mathOperation(arg1, arg2, operation);
+        alert("Результат: " + result);
+    </script>
+
+</body>
+
+</html>
