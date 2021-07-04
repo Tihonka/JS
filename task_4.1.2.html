@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>task_4.1.2</title>
+</head>
+
+<body>
+
+    <script>
+        'use strict'
+        // es5:
+        function post(author, text, date) {
+            this.author = author;
+            this.text = text;
+            this.date = date;
+        }
+
+        post.prototype.edit = function () {
+            this.text = prompt("Введите текст");
+        }
+
+        function AttachedPost(author, text, date) {
+            post.call(this, author, text, date);
+            this.highlighted = false;
+        }
+
+        AttachedPost.prototype = Object.create(post.prototype);
+        AttachedPost.prototype.constructor = AttachedPost;
+
+        AttachedPost.prototype.makeTextHighlighted = function () {
+            this.highlighted = true;
+        }
+
+        let APostObj = new AttachedPost("Petrov", "text", "01.01.2000");
+        APostObj.edit();
+        APostObj.makeTextHighlighted();
+
+        // es6:
+        class post {
+            constructor(author, text, date) {
+                this.author = author;
+                this.text = text;
+                this.date = date;
+            }
+            edit() {
+                this.text = prompt("Введите текст");
+            }
+        }
+
+        class AttachedPost extends post {
+            constructor(author, text, date) {
+                super(author, text, date);
+                this.highlighted = false;
+            }
+            makeTextHighlighted() {
+                this.highlighted = true;
+            }
+        }
+
+        let APostObj = new AttachedPost("Petrov", "text", "01.01.2000");
+        APostObj.edit();
+        APostObj.makeTextHighlighted();
+    </script>
+
+</body>
+
+</html>
