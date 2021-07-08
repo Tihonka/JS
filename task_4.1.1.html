@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>task_4.1.1</title>
+</head>
+
+<body>
+
+    <script>
+        'use strict'
+
+        // es5:
+        function product(name, price) {
+            this.name = name;
+            this.price = price;
+        }
+
+        product.prototype.show = function () {
+            this.price = this.price - this.price * 0.25;
+            console.log(this.name);
+            console.log(this.price);
+        }
+
+        let Obj1 = new product("milk", 60);
+        Obj1.show();
+
+        // es6:
+        class product {
+            constructor(name, price) {
+                this.name = name;
+                this.price = price;
+            }
+            show() {
+                this.price = this.price - this.price * 0.25;
+                console.log(this.name);
+                console.log(this.price);
+            }
+        }
+
+        let Obj1 = new product("milk", 60);
+        Obj1.show();
+    </script>
+</body>
+
+</html>
